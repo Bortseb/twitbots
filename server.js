@@ -22,6 +22,7 @@ const slackRouter = require('./slackRouter')
 app.use(slackRouter)
 
 // start the express server on the port set by the environment variable PORT
-app.listen(process.env.PORT, function () {
-  console.log('Twitbots app listening on port ' + process.env.PORT)
+const port = 8080
+app.listen(port, function () {
+  console.log('Twitbots app listening on port ' + port)
 })
