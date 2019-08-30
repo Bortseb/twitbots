@@ -34,7 +34,6 @@ router.post('/slack-data-feed', function (req, res) {
   authed_users: [ 'U0A76NT47' ],
   event_id: 'Ev4LH3LV2S',
   event_time: 1489753272 }
-
   */
 
   var teamId = 'T0A76MJUV'
