@@ -41,7 +41,6 @@ router.post('/slack-data-feed', function (req, res) {
   var torss = 'C4HA431RS'
   var CryptoICT = 'C65N61U4D'
 
-
   // acknowledge that we've received the message from slack
   if (req.body.challenge) res.send(req.body.challenge)
   else res.send('ok')
