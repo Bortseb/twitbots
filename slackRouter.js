@@ -57,7 +57,7 @@ router.post('/slack-data-feed', function (req, res) {
   //torss
   if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && event.subtype !== "message_changed"){
     request.post({
-      url: 'https://maker.ifttt.com/trigger/torss/with/key/dDAh9bqkTvtTbfTmo6DDxL',
+      url: 'https://maker.ifttt.com/trigger/torss/with/key/MLA5o7fpk4x6xdI3hw53f', //strange old key 'https://maker.ifttt.com/trigger/torss/with/key/dDAh9bqkTvtTbfTmo6DDxL'
       form: {
         'value1': link,
         'value2': title,
@@ -69,7 +69,7 @@ router.post('/slack-data-feed', function (req, res) {
   //commonsify
   if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source.substring(0,9) === "commonsify" && event.subtype !== "message_changed"){
     request.post({
-      url: 'https://maker.ifttt.com/trigger/commonsify_feed/with/key/dDAh9bqkTvtTbfTmo6DDxL',
+      url: 'https://maker.ifttt.com/trigger/commonsify_feed/with/key/dk2vv3f6QYxz5cnyMk_zTi',
       form: {
         'value1': link,
         'value2': title,
