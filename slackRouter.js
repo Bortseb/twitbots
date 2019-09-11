@@ -50,7 +50,7 @@ router.post('/slack-data-feed', function (req, res) {
   var link = event.text.substr(2,event.text.length - 4).split("|")[0]
   var title = event.text.substr(2,event.text.length - 4).substr(link.length + 1)
   var nuzzelData = event.attachments[0].pretext
-  var source = nuzzelData.split("|")[1].split(">")[0]
+  var source = nuzzelData.split("<")[1].split(">")[0].split("|")[0].split("/")[2]
 
   //torss
   if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && event.subtype !== "message_changed"){
@@ -65,7 +65,7 @@ router.post('/slack-data-feed', function (req, res) {
   }
 
   //commonsify
-  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source.substring(0,9) === "commonsify" && event.subtype !== "message_changed"){
+  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source === "commonsify" && event.subtype !== "message_changed"){
     request.post({
       url: 'https://maker.ifttt.com/trigger/commonsify_feed/with/key/dk2vv3f6QYxz5cnyMk_zTi',
       form: {
@@ -77,7 +77,7 @@ router.post('/slack-data-feed', function (req, res) {
   }
 
   //MetaHolo
-  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source.substring(0,7) === "MetaHolo" && event.subtype !== "message_changed"){
+  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source === "MetaHolo" && event.subtype !== "message_changed"){
     request.post({
       url: 'https://maker.ifttt.com/trigger/MetaHolo/with/key/hh-WIsHemQcfoom10g493hQM9KqTQVcYf_aCNQmJj_v',
       form: {
@@ -89,7 +89,7 @@ router.post('/slack-data-feed', function (req, res) {
   }
 
   //sensemakemap
-  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source.substring(0,11) === "SenseMakeMap" && event.subtype !== "message_changed"){
+  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source === "sensemakemap" && event.subtype !== "message_changed"){
     request.post({
       url: 'https://maker.ifttt.com/trigger/sensemakemap/with/key/oKXTJcUdTA4BYpAgkaqvgSyAWGxI94rTkPMOcOUrtKY',
       form: {
@@ -114,7 +114,7 @@ router.post('/slack-data-feed', function (req, res) {
   }
 
   //futurutuf
-  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source.substring(0,8) === "futurutuf" && event.subtype !== "message_changed"){
+  if (event && event.text !== null && req.body.team_id === teamId && event.channel === torss && source === "futurutuf" && event.subtype !== "message_changed"){
     request.post({
       url: 'https://maker.ifttt.com/trigger/futurutuf/with/key/breqtQWExd3RoUcoIGxKno',
       form: {
